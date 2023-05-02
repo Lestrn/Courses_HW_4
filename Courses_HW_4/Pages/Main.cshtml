@@ -1,0 +1,14 @@
+﻿@page
+@model Courses_HW_4.Pages.MainModel
+@{
+    if(string.IsNullOrEmpty(Model.Name) || string.IsNullOrEmpty(Model.Email))
+    {
+       <h3>Ты не вошел перейти на <a href ="@Url.Page("Index")">страницу входа</a> </h3>
+    }
+    else
+    {
+        <h3> Я, @Model.Name, @Model.Email стал разработчиком ASP .NET. </h3>
+    }
+}
+
+

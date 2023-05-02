@@ -1,0 +1,30 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <div class="sendForm">
+        <form method="post">
+            <p>Your name</p> <input name = "Name" />
+            <p>Your email</p> <input name = "Email" /> <br/>
+            <button id="submitButton" asp-page-handler="RedirectToMain">Стать разработчиком</button>
+            <button id="removeCookies" asp-page-handler="ClearCookies" disabled =@IndexModel.RemoveCookiesButtonDisabled> Очистить cookies </button>
+        </form>
+        @{
+            if (IndexModel.Error)
+            {
+                <p id="error"> @IndexModel.ErrorMessage </p>
+            }
+        }
+    </div> 
+    <style>
+        #submitButton {
+            margin-top: 10px;
+        }
+        #error {
+            color: red;
+        }
+    </style>
+</div>
